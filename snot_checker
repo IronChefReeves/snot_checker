@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo `date` > snot_report.txt
+
+echo "USN"
+for i in `snot -lu | grep USN | cut -d ' ' -f 2`; do
+    echo \ $i
+    snot -s $i >> snot_report.txt
+done
+
+echo "CentOS"
+for i in `snot -lu | grep CentOS | cut -d ' ' -f 2` ; do
+    echo \ $i
+    snot -s $i >> snot_report.txt
+done
